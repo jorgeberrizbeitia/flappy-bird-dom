@@ -1,0 +1,66 @@
+body {
+  margin: 0;
+  background-color: lightgray;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 50px;
+}
+
+#game-screen {
+  width: 600px;
+  height: 400px;
+  overflow: hidden;
+  background-color: darkgray;
+  background-image: url("../assets/bg.png");
+  background-size: cover;
+
+  position: relative; /* to allow absolute positioned elements inside */
+
+  user-select: none; /* to prevent the bird from being highlighter on click*/
+}
+
+#start-btn, #restart-btn {
+  background-color: green;
+  color: white;
+  padding: 20px;
+  font-size: 20px;
+  margin-top: 40px;
+  border-radius: 10px; 
+}
+
+/* to hide these elements on first load */
+#game-screen, #game-over-screen {
+  display: none;
+}
+
+
+/* css animations attempt */
+
+#bird {    
+  transform: rotate(60deg);
+}
+
+@keyframes jumpAnimation {
+  0% {
+    transform: rotate(-60deg);
+  }
+  100% {
+    transform: rotate(60deg);
+  }
+}
+
+/* test */
+
+@keyframes growAnimation {
+  50% {
+    transform: scale(300%);
+  }
+  100% {
+    transform: scale(100%);
+  }
+}
