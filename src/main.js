@@ -7,11 +7,6 @@ const restartBtn = document.querySelector("#restart-btn")
 
 let game;
 
-// TEST helper function
-function extractNumberValue(valueInPx) {
-  return Number(valueInPx.slice(0, valueInPx.length - 2))
-}
-
 // *** STATE MANAGEMENT FUNCTIONS ***
 
 function startGame () {

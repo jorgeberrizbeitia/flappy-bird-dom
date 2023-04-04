@@ -15,7 +15,7 @@ class Obstacle {
 
     // Properties used for updates and checks
     this.x = 600; // initial Position. Obstacles start on the right of the screen
-    this.y = positionY; // initial Position. Variable determined
+    this.y = positionY; // initial Position. Asigned on obj creation
     this.w = 40; // width of the bird;
     this.h = 200; // height of the bird;
     this.speed = 1.5;
@@ -27,6 +27,8 @@ class Obstacle {
     this.DOMElement.style.top = `${this.y}px`;
     this.DOMElement.style.left = `${this.x}px`;
   }
+
+  // *** Methods ***
 
   automaticMovement = () => {
     this.x -= this.speed;

@@ -28,8 +28,10 @@ class Bird {
     this.DOMElement.style.top = `${this.y}px`;
     this.DOMElement.style.left = `${this.x}px`;
 
-    // todo check now proper size and position
+    this.canGrow = true;
   }
+
+  // *** Methods ***
 
   gravityEffect = () => {
     if (this.y < 400 - this.h) {
@@ -43,12 +45,10 @@ class Bird {
       this.y -= this.jumpSpeed
       this.DOMElement.style.top = `${this.y}px`; // update in DOM
 
+      // EXAMPLE OF ROTATE ANIMATION ON JUMP
       this.stopAnimation()
-
       this.DOMElement.style.animation = "jumpAnimation 0.3s ease-in-out"
-
     }
-
   }
 
   stopAnimation = () => {
@@ -59,17 +59,21 @@ class Bird {
     this.DOMElement.style.animation = null; 
   }
 
-  // Test
+  // EXAMPLE OF SCALE ANIMATION ON JUMP (although collision is not perfect)
   growEffect = () => {
-    this.stopAnimation()
-    this.DOMElement.style.animation = "growAnimation 0.5s ease-in-out"
-    // we need to update size values to 300%
-    this.w = this.w * 3
-    this.h = this.h * 3
-    setTimeout(() => {
-      this.w = this.w / 3
-      this.h = this.h / 3
-    }, 500);
+    if (this.canGrow === true) {
+      this.canGrow = false; // to prevent multiple grows
+      this.stopAnimation()
+      this.DOMElement.style.animation = "growAnimation 0.5s ease-in-out"
+      // we need to update size values to 300%
+      this.w = this.w * 2
+      this.h = this.h * 2
+      setTimeout(() => {
+        this.w = this.w / 2
+        this.h = this.h / 2
+        this.canGrow = true; // so it can grow again after 0.5s
+      }, 500);
+    }
   }
 
 }

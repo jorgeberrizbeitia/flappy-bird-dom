@@ -7,7 +7,7 @@ class Game {
 
     this.isGameOn = true;
   }
-
+  // *** Methods ***
   checkObstacleCreation = () => {
     // if (this.frames === 0) {
     if (this.frames % 120 === 0) {
@@ -38,8 +38,7 @@ class Game {
       }
     })
   }
-
-  // *** Methods ***
+  
   gameLoop = () => {
     // console.log("game running")
 
